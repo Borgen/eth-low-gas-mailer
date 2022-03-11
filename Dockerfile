@@ -1,4 +1,4 @@
-FROM node:slim
+FROM arm64v8/node:latest
 
 # Create app directory
 WORKDIR /usr/src/app
