@@ -1,5 +1,17 @@
 "use strict";
+
 const nodemailer = require("nodemailer");
+
+
+var toList = process.env.TOLIST;
+
+if(toList){    
+    console.log("Mail gönderilecekler listesi: " + toList);
+}
+else{
+    toList = "***REMOVED***";    
+    console.log("Mail gönderilecekler listesi: " + toList);
+}
 
 // async..await is not allowed in global scope, must use a wrapper
 module.exports = {
@@ -20,7 +32,7 @@ module.exports = {
       // send mail with defined transport object
       let info = await transporter.sendMail({
         from: '"Eth Pompacısı" <***REMOVED***>', // sender address
-        to: "***REMOVED***", // list of receivers
+        to: toList, // list of receivers
         subject: "Ortalama Eth Gaz Fiyatı Düşük! ✔", // Subject line
         text: "Ortalama fiyat: " + avgGasPrice // plain text body
       });

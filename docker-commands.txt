@@ -1,0 +1,2 @@
+docker build . -t okank/eth-low-gas-mailer
+docker run --restart unless-stopped --name eth-low-gas-mailer --env-file docker-env.list okank/eth-low-gas-mailer
