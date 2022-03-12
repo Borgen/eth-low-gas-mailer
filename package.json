@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cron": "^1.8.2",
+    "handlebars": "^4.7.7",
     "nodemailer": "^6.7.2",
     "web3": "^1.7.1"
   }
