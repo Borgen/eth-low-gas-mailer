@@ -1,9 +1,12 @@
 docker build . -t okank/eth-low-gas-mailer
-docker run -d --restart unless-stopped --name eth-low-gas-mailer --env-file docker-env.list okank/eth-low-gas-mailer
-
 
 #on windows
 docker save -o C:\Users\okank\Projects\docker-images\eth-low-gas-mailer.tar okank/eth-low-gas-mailer
 
 #on raspbery
-docker load -i eth-low-gas-mailer.tar
+sudo docker load -i eth-low-gas-mailer.tar
+#test
+sudo docker run -d --restart unless-stopped --name eth-low-gas-mailer --env-file docker-env-test.list --label=com.centurylinklabs.watchtower.enable=false okank/eth-low-gas-mailer
+
+#prod
+sudo docker run -d --restart unless-stopped --name eth-low-gas-mailer --env-file docker-env.list --label=com.centurylinklabs.watchtower.enable=false okank/eth-low-gas-mailer

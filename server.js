@@ -17,7 +17,11 @@ if (isNumeric(process.env.PRICELIMIT)) {
     avgGasPriceLimit = process.env.PRICELIMIT;
 }
 
-//every 4 hour
+
+checkGasPrice();
+
+
+//start job for every Nth hour
 
 if (isNumeric(everyNthHour)) {
 
@@ -26,6 +30,7 @@ if (isNumeric(everyNthHour)) {
         var job = new CronJob('0 0 */' + everyNthHour + ' * * *', checkGasPrice, null, false, 'Europe/Istanbul');
 
         job.start();
+        console.log("job başlatıldı.");
 
     } catch (e) {
         console.log("CronJob setlenirken hata", e);
@@ -35,10 +40,12 @@ else {
 
     try {
 
-        console.log("Periyod bilgisi okunmadı, 10 saniyede bir olarak alınıyor.");
-        var job = new CronJob('*/10 * * * * *', checkGasPrice, null, false, 'Europe/Istanbul'); //test every 10th second
+        console.log("Periyod bilgisi okunmadı, 30 saniyede bir olarak alınıyor.");
+        var job = new CronJob('*/30 * * * * *', checkGasPrice, null, false, 'Europe/Istanbul'); //test every 30th second
 
         job.start();
+
+        console.log("job başlatıldı.");
 
     } catch (e) {
         console.log("CronJob setlenirken hata", e);
