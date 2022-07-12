@@ -2,7 +2,7 @@
   "name": "docker_web3_app",
   "version": "1.0.0",
   "description": "Node.js Web3 on Docker",
-  "author": "Okan Konur <***REMOVED***>",
+  "author": "Okan Konur <okan.konur@gmail.com>",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
